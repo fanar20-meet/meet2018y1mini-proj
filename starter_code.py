@@ -173,10 +173,13 @@ def move_snake():
 
     if snake.pos() in pos_list[:-1]:
         print("you ate yourself ! Game over!")
+        screen.bgpic("GO.gif")
+        screen.update()
+        time.sleep(2)
         quit()
        
     ######## SPECIAL PLACE - Remember it for Part 5
-    global food_stamps, food_pos
+        global food_stamps, food_pos 
     #If snake is on top of food item
     if snake.pos() in food_pos:
         food_ind=food_pos.index(snake.pos()) #What does this do?
@@ -185,7 +188,9 @@ def move_snake():
         food_pos.pop(food_ind) #Remove eaten food position
         food_stamps.pop(food_ind) #Remove eaten food stamp
         print("You have eaten the food!")
+        score += 1 
         make_food()
+        
     else:
         old_stamp = stamp_list.pop(0)
         snake.clearstamp(old_stamp)
@@ -206,12 +211,21 @@ def move_snake():
 
     if new_x_pos >= RIGHT_EDGE:
         print("You hit the right edge! Game over!")
+        screen.bgpic("GO.gif")
+        screen.update()
+        time.sleep(2)
         quit()
     elif new_x_pos <= LEFT_EDGE:
         print("you hit the left edge! Game over!")
+        screen.bgpic("GO.gif")
+        screen.update()
+        time.sleep(2)
         quit()
     elif new_y_pos >= UP_EDGE:
         print("you hit the up edge! Game over!")
+        screen.bgpic("GO.gif")
+        screen.update()
+        time.sleep(2)
         quit()
     elif new_y_pos <= DOWN_EDGE:
         print("you hit the down edge! Game over!")
