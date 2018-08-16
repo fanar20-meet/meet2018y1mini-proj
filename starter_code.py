@@ -12,9 +12,9 @@ cube.goto(-300,300)
 cube.goto(300,300)
 
 screen = turtle.Screen()
+score = 0
 
-
-
+turtle.register_shape("Caleb.gif")
 
 
 turtle.tracer(1,0) #This helps the turtle move more smoothly
@@ -36,8 +36,7 @@ food_stamps = []
 
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
-snake.shape("arrow")
-snake.color('red')
+snake.shape("Caleb.gif")
 
 #Hide the turtle object (it's an arrow - we don't need to see it)
 turtle.hideturtle()
@@ -179,7 +178,7 @@ def move_snake():
         quit()
        
     ######## SPECIAL PLACE - Remember it for Part 5
-        global food_stamps, food_pos 
+        global food_stamps, food_pos, score 
     #If snake is on top of food item
     if snake.pos() in food_pos:
         food_ind=food_pos.index(snake.pos()) #What does this do?
@@ -237,14 +236,14 @@ def move_snake():
     turtle.ontimer(move_snake,TIME_STEP)
 
 
-turtle.register_shape("trash.gif") #Add trash picture
+turtle.register_shape("Caleb.gif") #Add trash picture
                       # Make sure you have downloaded this shape 
                       # from the Google Drive folder and saved it
                       # in the same folder as this Python script
 
 
 food = turtle.clone()
-food.shape("trash.gif")
+food.shape("Caleb.gif")
 food.hideturtle()
 
 #Locations of food
